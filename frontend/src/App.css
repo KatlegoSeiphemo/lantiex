@@ -334,6 +334,8 @@ a:hover {
   font-weight: 600;
   margin-bottom: 12px;
   color: var(--text);
+  position: relative;
+  z-index: 2;
 }
 
 .newsletter-section p {
