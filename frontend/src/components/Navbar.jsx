@@ -35,8 +35,11 @@ const Navbar = () => {
           </a>
         </div>
         <div className={`nav-menu ${isMobileMenuOpen ? 'active' : ''}`}>
-          <a href="#home" className="nav-link" onClick={(e) => handleNavClick(e, '#home')}>
-            SGBR
+          <a href="#services" className="nav-link" onClick={(e) => handleNavClick(e, '#services')}>
+            Services
+          </a>
+          <a href="#faq" className="nav-link" onClick={(e) => handleNavClick(e, '#faq')}>
+            FAQ
           </a>
           <a href="#newsletter" className="nav-link" onClick={(e) => handleNavClick(e, '#newsletter')}>
             Newsletter
