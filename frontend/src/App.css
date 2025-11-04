@@ -144,6 +144,66 @@ a:hover {
   min-height: 70vh;
   display: flex;
   align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Neon Streaks */
+.neon-streak {
+  position: absolute;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  box-shadow: 0 0 10px var(--accent), 0 0 20px var(--accent), 0 0 30px var(--accent);
+  opacity: 0;
+  animation: streak 4s ease-in-out infinite;
+}
+
+.neon-streak.vertical {
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, var(--accent), transparent);
+}
+
+.neon-streak:nth-child(1) {
+  top: 20%;
+  width: 200px;
+  animation-delay: 0s;
+}
+
+.neon-streak:nth-child(2) {
+  top: 50%;
+  width: 300px;
+  animation-delay: 1.5s;
+}
+
+.neon-streak:nth-child(3) {
+  top: 70%;
+  width: 250px;
+  animation-delay: 3s;
+}
+
+.neon-streak:nth-child(4) {
+  top: 35%;
+  width: 180px;
+  animation-delay: 2.2s;
+}
+
+.neon-streak.vertical:nth-child(5) {
+  left: 20%;
+  animation-name: streakVertical;
+  animation-delay: 1s;
+}
+
+.neon-streak.vertical:nth-child(6) {
+  left: 60%;
+  animation-name: streakVertical;
+  animation-delay: 3.5s;
+}
+
+.neon-streak.vertical:nth-child(7) {
+  left: 80%;
+  animation-name: streakVertical;
+  animation-delay: 2.8s;
 }
 
 .hero-content h1 {
