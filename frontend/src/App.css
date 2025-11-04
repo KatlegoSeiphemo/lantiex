@@ -468,6 +468,24 @@ a:hover {
   }
 }
 
+@keyframes float {
+  0% {
+    bottom: -10px;
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    bottom: 100%;
+    opacity: 0;
+    transform: translateX(50px);
+  }
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .hero-section {
