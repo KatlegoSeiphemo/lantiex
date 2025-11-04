@@ -1,34 +1,340 @@
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
+/* Site styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
+:root {
+  --bg: #0c0b1b;
+  --bg-soft: #100f25;
+  --text: #e8e8ef;
+  --muted: #c9cad6;
+  --subtle: #9ca3af;
+  --accent: #7525ff;
 }
 
-.App-header {
-    background-color: #0f0f10;
-    min-height: 100vh;
+html,
+body {
+  height: 100%;
+}
+body {
+  font-family: "Inter", -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: radial-gradient(
+      1000px 600px at 50% -200px,
+      rgba(167, 139, 250, 0.12),
+      transparent
+    ),
+    var(--bg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: var(--text);
+  line-height: 1.8;
+  padding-top: 64px;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Nav */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background: transparent;
+  transition: background-color 0.25s ease, backdrop-filter 0.25s ease,
+    -webkit-backdrop-filter 0.25s ease, box-shadow 0.25s ease;
+}
+.navbar.scrolled {
+  background: linear-gradient(
+    to bottom,
+    rgba(12, 11, 27, 0.72),
+    rgba(12, 11, 27, 0.55)
+  );
+  backdrop-filter: saturate(140%) blur(14px);
+  -webkit-backdrop-filter: saturate(140%) blur(14px);
+}
+.nav-container {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+.nav-logo a {
+  color: var(--text);
+  font-weight: 600;
+  font-size: 1.15rem;
+}
+.logo-img {
+  height: 28px;
+  width: auto;
+  display: block;
+}
+.nav-menu {
+  display: flex;
+  gap: 18px;
+}
+.nav-link {
+  color: var(--muted);
+  font-size: 1rem;
+  transition: color 0.2s ease;
+}
+.nav-link:hover,
+.nav-link.active {
+  color: var(--text);
+  text-decoration: none;
+}
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+}
+.bar {
+  width: 22px;
+  height: 2px;
+  background: var(--text);
+  opacity: 0.9;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .nav-menu {
+    position: fixed;
+    left: -100%;
+    top: 64px;
+    width: 100%;
+    background: rgba(12, 11, 27, 0.95);
+    backdrop-filter: blur(14px);
+    padding: 16px 24px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
+    gap: 10px;
+    transition: left 0.3s ease;
+  }
+  .nav-menu.active {
+    left: 0;
+  }
+  .nav-toggle {
+    display: flex;
+  }
 }
 
-.App-link {
-    color: #61dafb;
+/* Hero Section */
+.hero-section {
+  padding: 80px 0;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
 }
 
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+.hero-content h1 {
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: var(--text);
+  line-height: 1.1;
+}
+
+.hero-content .tagline {
+  font-size: clamp(1.125rem, 3vw, 1.5rem);
+  color: var(--muted);
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+
+/* About Section */
+.about-section {
+  padding: 80px 0;
+}
+
+.about-section h2 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 600;
+  margin-bottom: 32px;
+  color: var(--text);
+}
+
+.about-section p {
+  font-size: 1.125rem;
+  color: var(--muted);
+  margin-bottom: 24px;
+  line-height: 1.8;
+}
+
+/* Newsletter Section */
+.newsletter-section {
+  padding: 80px 0;
+  text-align: center;
+}
+
+.newsletter-section h2 {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: var(--text);
+}
+
+.newsletter-section p {
+  color: var(--muted);
+  margin-bottom: 32px;
+  font-size: 1.125rem;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 12px;
+  max-width: 500px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.newsletter-input {
+  flex: 1 1 260px;
+  min-width: 220px;
+  padding: 14px 20px;
+  border-radius: 9999px;
+  border: none;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text);
+  font-size: 1rem;
+  transition: background 0.2s ease;
+}
+
+.newsletter-input:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.newsletter-input::placeholder {
+  color: var(--subtle);
+}
+
+.newsletter-button {
+  padding: 14px 28px;
+  border-radius: 9999px;
+  border: none;
+  background: var(--accent);
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.newsletter-button:hover {
+  filter: brightness(1.1);
+  transform: scale(1.02);
+}
+
+.newsletter-button:active {
+  transform: scale(0.98);
+}
+
+.newsletter-success {
+  color: #10b981;
+  margin-top: 16px;
+  font-size: 1rem;
+}
+
+/* Footer */
+.footer {
+  padding: 60px 0 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  margin-top: 40px;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: var(--muted);
+  font-size: 1rem;
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.footer-copyright {
+  text-align: center;
+  color: var(--subtle);
+  font-size: 0.875rem;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 60px 0;
+    min-height: 60vh;
+  }
+
+  .about-section {
+    padding: 60px 0;
+  }
+
+  .newsletter-section {
+    padding: 60px 0;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .newsletter-button {
+    width: 100%;
+  }
+
+  .footer {
+    padding: 40px 0 30px;
+  }
+
+  .nav-container {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
 }
