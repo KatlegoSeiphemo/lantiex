@@ -6,6 +6,15 @@ const Hero = () => {
 
   return (
     <section id="home" className="hero-section">
+      {/* Neon Streaks */}
+      <div className="neon-streak"></div>
+      <div className="neon-streak"></div>
+      <div className="neon-streak"></div>
+      <div className="neon-streak"></div>
+      <div className="neon-streak vertical"></div>
+      <div className="neon-streak vertical"></div>
+      <div className="neon-streak vertical"></div>
+      
       <div className="container">
         <div className="hero-content fade-in-up">
           <p className="tagline">{hero.tagline}</p>
