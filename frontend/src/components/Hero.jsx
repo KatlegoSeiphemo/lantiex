@@ -6,6 +6,15 @@ const Hero = () => {
 
   return (
     <section id="home" className="hero-section">
+      {/* Neon Particles */}
+      <div className="neon-particles">
+        <div className="neon-particle"></div>
+        <div className="neon-particle"></div>
+        <div className="neon-particle"></div>
+        <div className="neon-particle"></div>
+        <div className="neon-particle"></div>
+      </div>
+      
       {/* Neon Streaks */}
       <div className="neon-streak"></div>
       <div className="neon-streak"></div>
