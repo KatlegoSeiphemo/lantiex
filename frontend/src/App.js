@@ -6,6 +6,7 @@ import WaveDivider from './components/WaveDivider';
 import Services from './components/Services';
 import About from './components/About';
 import Stats from './components/Stats';
+import FAQ from './components/FAQ';
 import Newsletter from './components/Newsletter';
 import Footer from './components/Footer';
 
@@ -21,8 +22,10 @@ function App() {
       <WaveDivider />
       <Stats />
       <WaveDivider flip={true} />
-      <Newsletter />
+      <FAQ />
       <WaveDivider />
+      <Newsletter />
+      <WaveDivider flip={true} />
       <Footer />
     </div>
   );
