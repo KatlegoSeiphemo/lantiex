@@ -212,6 +212,9 @@ a:hover {
   margin-bottom: 24px;
   color: var(--text);
   line-height: 1.1;
+  animation: glow 3s ease-in-out infinite;
+  position: relative;
+  z-index: 2;
 }
 
 .hero-content .tagline {
