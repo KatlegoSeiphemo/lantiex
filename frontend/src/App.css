@@ -342,6 +342,8 @@ a:hover {
   color: var(--muted);
   margin-bottom: 32px;
   font-size: 1.125rem;
+  position: relative;
+  z-index: 2;
 }
 
 .newsletter-form {
