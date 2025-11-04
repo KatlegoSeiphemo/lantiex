@@ -353,6 +353,8 @@ a:hover {
   margin: 0 auto;
   flex-wrap: wrap;
   justify-content: center;
+  position: relative;
+  z-index: 2;
 }
 
 .newsletter-input {
