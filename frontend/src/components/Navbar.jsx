@@ -50,7 +50,7 @@ const Navbar = ({ onContactClick }) => {
           <a href="#newsletter" className="nav-link" onClick={(e) => handleNavClick(e, '#newsletter')}>
             Newsletter
           </a>
-          <a href="#contact" className="nav-link" onClick={(e) => handleNavClick(e, '#contact')}>
+          <a href="#contact" className="nav-link" onClick={handleContactClick}>
             Contact
           </a>
         </div>
