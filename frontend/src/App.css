@@ -862,6 +862,7 @@ a:hover {
 }
 
 .modal-content input,
+.modal-content select,
 .modal-content textarea {
   background: var(--bg);
   border: 1px solid var(--accent);
@@ -872,9 +873,14 @@ a:hover {
 }
 
 .modal-content input:focus,
+.modal-content select:focus,
 .modal-content textarea:focus {
   outline: none;
   border-color: var(--accent);
+}
+
+.modal-content select {
+  cursor: pointer;
 }
 
 .modal-content textarea {
