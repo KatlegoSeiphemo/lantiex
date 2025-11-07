@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -9,11 +9,17 @@ import Stats from './components/Stats';
 import FAQ from './components/FAQ';
 import Newsletter from './components/Newsletter';
 import Footer from './components/Footer';
+import ContactModal from './components/ContactModal';
 
 function App() {
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+
+  const openContactModal = () => setIsContactModalOpen(true);
+  const closeContactModal = () => setIsContactModalOpen(false);
+
   return (
     <div className="App">
-      <Navbar />
+      <Navbar onContactClick={openContactModal} />
       <Hero />
       <WaveDivider />
       <Services />
@@ -26,7 +32,8 @@ function App() {
       <WaveDivider />
       <Newsletter />
       <WaveDivider flip={true} />
-      <Footer />
+      <Footer onContactClick={openContactModal} />
+      <ContactModal isOpen={isContactModalOpen} onClose={closeContactModal} />
     </div>
   );
 }
