@@ -7,6 +7,16 @@ const ContactModal = ({ isOpen, onClose }) => {
   const [message, setMessage] = useState('');
   const [status, setStatus] = useState('');
 
+  const subjectOptions = [
+    'General Inquiry',
+    'App Development',
+    'Bug Report',
+    'Feature Request',
+    'Partnership',
+    'Feedback',
+    'Other'
+  ];
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     
@@ -19,12 +29,15 @@ const ContactModal = ({ isOpen, onClose }) => {
       });
 
       if (response.ok) {
-        setStatus('Message sent!');
+        setStatus('Thank you for your message! We will be in touch.');
         setName('');
         setEmail('');
         setSubject('');
         setMessage('');
-        setTimeout(() => onClose(), 2000);
+        setTimeout(() => {
+          onClose();
+          setStatus('');
+        }, 3000);
       } else {
         setStatus('Failed to send');
       }
@@ -64,13 +77,18 @@ const ContactModal = ({ isOpen, onClose }) => {
             required
           />
           
-          <input
-            type="text"
-            placeholder="Subject"
+          <select
             value={subject}
             onChange={(e) => setSubject(e.target.value)}
             required
-          />
+          >
+            <option value="">Select a subject</option>
+            {subjectOptions.map((option, index) => (
+              <option key={index} value={option}>
+                {option}
+              </option>
+            ))}
+          </select>
           
           <textarea
             placeholder="Message"
